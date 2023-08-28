@@ -38,12 +38,6 @@ public class User implements UserDetails {
     private String firstName;
     @Column(name = "last_name",length = 30 , nullable = false)
     private String lastName;
-    @JsonFormat(pattern="yyyy-MM-dd")
-    @Column(name = "date_of_birth", nullable = false)
-    private LocalDate dateOfBirth;
-    @JsonFormat(pattern="yyyy-MM-dd")
-    @Column(name = "join_date", nullable = false)
-    private LocalDate  joinDate;
     @Column(length = 50 , nullable = false)
     private String address;
     @Column(length = 11 , nullable = false)
@@ -55,10 +49,8 @@ public class User implements UserDetails {
     private String email;
     @Column( nullable = false)
     private String password;
-    @Column(name = "is_blocked")
-    private short isBlocked ;
-    @Column(name = "is_active")
-    private short isActive;
+    @Column(name = "is_verified")
+    private short isVerified ;
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;

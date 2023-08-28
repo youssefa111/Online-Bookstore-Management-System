@@ -40,7 +40,7 @@ public class UserService  {
         isUsernameExist(user);
         isEmailExist(user);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setIsActive((short) 1);
+        user.setIsVerified((short) 0);
         userRepository.save(user);
         return  new BaseResponse<>(null,"User Account Created Successfully!");
     }

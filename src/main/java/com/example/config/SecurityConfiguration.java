@@ -23,9 +23,6 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 )
 public class SecurityConfiguration {
 
-
-//    @Autowired
-//    private  ExceptionHandlerFilter exceptionHandlerFilter;
     @Autowired
     private  JwtAuthenticationFilter jwtAuthFilter;
     @Autowired
@@ -56,28 +53,6 @@ public class SecurityConfiguration {
                                         .anyRequest()
                                         .authenticated()
                 )
-
-//                .exceptionHandling(
-//                        httpSecurityExceptionHandlingConfigurer ->
-//                                httpSecurityExceptionHandlingConfigurer
-//                                        .accessDeniedHandler((request, response, accessDeniedException) -> {
-//                                          if (accessDeniedException != null){
-//                                              throw  new CustomAccessDeniedHandler("Access denied");
-//                                          }
-//                                          else {
-//                                                        throw new RuntimeException("Authentication failed");
-//                                                    }
-//                                        })
-//                                        .authenticationEntryPoint(
-//                                                (request, response, authException) -> {
-//                                                    if (authException != null) {
-//                                                        throw new CustomExpiredJwtException("Token has been expired!");
-//                                                    } else {
-//                                                        throw new RuntimeException("Authentication failed");
-//                                                    }
-//                                                }
-//                                        )
-//                )
                 .sessionManagement(
                         (sessionManagement) ->
                                 sessionManagement.sessionConcurrency((sessionConcurrency) ->
@@ -87,7 +62,6 @@ public class SecurityConfiguration {
                                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .authenticationProvider(authenticationProvider)
-//                .addFilterBefore(exceptionHandlerFilter,JwtAuthenticationFilter.class)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .logout(
                         (logout) ->

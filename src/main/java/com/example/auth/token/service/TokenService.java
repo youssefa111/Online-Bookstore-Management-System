@@ -5,7 +5,6 @@ import com.example.auth.token.entity.Token;
 import com.example.auth.token.mapper.TokenMapper;
 import com.example.auth.token.repository.TokenRepository;
 import com.example.auth.user.entity.User;
-import com.example.core.constant.TokenType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +36,6 @@ public class TokenService {
         var token = Token.builder()
                 .user(savedUser)
                 .token(jwtToken)
-                .tokenType(TokenType.BEARER)
                 .revoked(false)
                 .expired(false)
                 .expireDate(expireDate)
