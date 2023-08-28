@@ -1,7 +1,7 @@
 package com.example.auth.role.mapper;
 
-import com.grocery_project.auth.role.dto.RoleDto;
-import com.grocery_project.auth.role.entity.Role;
+import com.example.auth.role.dto.RoleDto;
+import com.example.auth.role.entity.Role;
 import org.mapstruct.*;
 
 @Mapper(

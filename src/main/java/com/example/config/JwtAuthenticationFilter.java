@@ -2,8 +2,8 @@ package com.example.config;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.grocery_project.auth.token.repository.TokenRepository;
-import com.grocery_project.core.base.BaseResponse;
+import com.example.auth.token.repository.TokenRepository;
+import com.example.core.base.BaseResponse;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

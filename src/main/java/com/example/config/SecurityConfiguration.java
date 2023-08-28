@@ -1,6 +1,6 @@
 package com.example.config;
 
-import com.grocery_project.core.constant.AppConstants;
+import com.example.core.constant.AppConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

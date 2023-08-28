@@ -1,6 +1,6 @@
 package com.example.auth.token.repository;
 
-import com.grocery_project.auth.token.entity.Token;
+import com.example.auth.token.entity.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

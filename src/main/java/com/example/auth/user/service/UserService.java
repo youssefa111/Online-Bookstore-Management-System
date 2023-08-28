@@ -1,15 +1,15 @@
 package com.example.auth.user.service;
 
-import com.grocery_project.auth.token.service.TokenService;
-import com.grocery_project.auth.user.dto.LoginDto;
-import com.grocery_project.auth.user.dto.RegisterDto;
-import com.grocery_project.auth.user.dto.UserDataResponse;
-import com.grocery_project.auth.user.entity.User;
-import com.grocery_project.auth.user.mapper.UserMapper;
-import com.grocery_project.auth.user.repository.UserRepository;
-import com.grocery_project.config.JwtService;
-import com.grocery_project.core.base.BaseResponse;
-import com.grocery_project.core.exception_handling.exception.DuplicateRecordException;
+import com.example.auth.token.service.TokenService;
+import com.example.auth.user.dto.LoginDto;
+import com.example.auth.user.dto.RegisterDto;
+import com.example.auth.user.dto.UserDataResponse;
+import com.example.auth.user.entity.User;
+import com.example.auth.user.mapper.UserMapper;
+import com.example.auth.user.repository.UserRepository;
+import com.example.config.JwtService;
+import com.example.core.base.BaseResponse;
+import com.example.core.exception_handling.exception.DuplicateRecordException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;

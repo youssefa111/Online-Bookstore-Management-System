@@ -2,8 +2,8 @@ package com.example.auth.user.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.grocery_project.auth.role.entity.Role;
-import com.grocery_project.auth.token.entity.Token;
+import com.example.auth.role.entity.Role;
+import com.example.auth.token.entity.Token;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;

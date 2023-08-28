@@ -1,6 +1,6 @@
 package com.example.auth.user.repository;
 
-import com.grocery_project.auth.user.entity.User;
+import com.example.auth.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

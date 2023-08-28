@@ -1,6 +1,6 @@
 package com.example.auth.role.entity;
 
-import com.grocery_project.core.constant.RoleType;
+import com.example.core.constant.RoleType;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -2,7 +2,7 @@ package com.example.auth.user.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.grocery_project.auth.role.dto.RoleDto;
+import com.example.auth.role.dto.RoleDto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

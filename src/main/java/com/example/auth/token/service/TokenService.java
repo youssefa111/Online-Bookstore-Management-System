@@ -1,11 +1,11 @@
 package com.example.auth.token.service;
 
-import com.grocery_project.auth.token.dto.TokenDto;
-import com.grocery_project.auth.token.entity.Token;
-import com.grocery_project.auth.token.mapper.TokenMapper;
-import com.grocery_project.auth.token.repository.TokenRepository;
-import com.grocery_project.auth.user.entity.User;
-import com.grocery_project.core.constant.TokenType;
+import com.example.auth.token.dto.TokenDto;
+import com.example.auth.token.entity.Token;
+import com.example.auth.token.mapper.TokenMapper;
+import com.example.auth.token.repository.TokenRepository;
+import com.example.auth.user.entity.User;
+import com.example.core.constant.TokenType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

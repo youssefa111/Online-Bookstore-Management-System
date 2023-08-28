@@ -1,6 +1,6 @@
 package com.example.config;
 
-import com.grocery_project.auth.user.repository.UserRepository;
+import com.example.auth.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,6 @@
 package com.example.auth.user.dto;
 
-import com.grocery_project.auth.token.dto.TokenDto;
+import com.example.auth.token.dto.TokenDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

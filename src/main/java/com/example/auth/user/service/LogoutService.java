@@ -1,7 +1,7 @@
 package com.example.auth.user.service;
 
 
-import com.grocery_project.auth.token.service.TokenService;
+import com.example.auth.token.service.TokenService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
 package com.example.auth.role.service;
 
-import com.grocery_project.auth.role.entity.Role;
-import com.grocery_project.auth.role.repository.RoleRepository;
+import com.example.auth.role.entity.Role;
+import com.example.auth.role.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
