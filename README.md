@@ -33,6 +33,6 @@
 # DATABASE DIAGRAM (v1)
 (note: I am the one who designed this database diagram with all its entites and fields)
 
-<img src = "/src/main/resources/database/database_diagram.PNG" height="500" width="500">
+<img src = "/src/main/resources/database_diagram.PNG" height="500" width="500">
 
 
