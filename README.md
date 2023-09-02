@@ -1,38 +1,30 @@
 # Online-Bookstore-Management-System
+System that have two roles (admin,user) the user can browse for available books and can borrow some books with manage the borrowing and return dates. and Admin can add,remove,update the books.
 
-# Technologies and Properties of Application
-
-- springboot
-- security 
-- authentication with JWT token
-- data encryption
-- Two roles ( admin - customer)
-- authentication with JWT token
-- authorization each role has its own securied apis
-- connect with firebase (database storage)
-- connect with oracle database
-- validation on all apis
-- handling exceptions
-- reduce boilerplate code with lombak
-- convert between entities and DTOS with mapstruct
-- and more...
-
-# APIS
-- CRUD users
-- CRUD product
-- CRUD category
-- CRUD discount
-- CRUD quantity
-- CRUD order
-- CRUD order_items
-- CRUD rating
-- CRUD transication
-- and each of these entities has more apis with different  cases and business  requirements
+#Technology
+Springboot for Backend RESTful APIs.
+JWT Token for Security.
+JPA/Hibrnate for data access.
+Oracle SQL for Database.
 
 
-# DATABASE DIAGRAM (v1)
-(note: I am the one who designed this database diagram with all its entites and fields)
+# Business
 
+# Admin
+1- add book 
+2- update book
+3- Delete book (Delete completelty from database)
+4- remove book (Remove is just not show in available books)
+
+# User
+1- can browse all avaiable books
+2- can see the categories of books in the store
+3- can browse books by category
+5- can borrow books
+
+
+# DATABASE DIAGRAM
+(note: you can check oracle sql code for the database from this path: /src/main/resources/bookstore.sql)
 <img src = "/src/main/resources/database_diagram.PNG" height="500" width="500">
 
 
