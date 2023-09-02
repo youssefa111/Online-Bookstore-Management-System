@@ -2,10 +2,10 @@
 System that have two roles (admin,user) the user can browse for available books and can borrow some books with manage the borrowing and return dates. and Admin can add,remove,update the books.
 
 #Technology
-Springboot for Backend RESTful APIs.
-JWT Token for Security.
-JPA/Hibrnate for data access.
-Oracle SQL for Database.
+-Springboot for Backend RESTful APIs.
+-JWT Token for Security.
+-JPA/Hibrnate for data access.
+-Oracle SQL for Database.
 
 
 # Business
