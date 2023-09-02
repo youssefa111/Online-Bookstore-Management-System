@@ -11,10 +11,10 @@ Oracle SQL for Database.
 # Business
 
 # Admin
-1- add book 
-2- update book
-3- Delete book (Delete completelty from database)
-4- remove book (Remove is just not show in available books)
+- add book 
+- update book
+- Delete book (Delete completelty from database)
+- remove book (Remove is just not show in available books)
 
 # User
 1- can browse all avaiable books
