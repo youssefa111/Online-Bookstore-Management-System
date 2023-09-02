@@ -2,6 +2,7 @@ package com.example.core.exception_handling.advice;
 
 import com.example.core.base.BaseResponse;
 import com.example.core.exception_handling.exception.*;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestControllerAdvice
+@Slf4j
 public class ApplicationExceptionHandler {
 
     private final Logger logger = LoggerFactory.getLogger(ApplicationExceptionHandler.class);
@@ -30,21 +32,21 @@ public class ApplicationExceptionHandler {
     @ResponseStatus(HttpStatus.FORBIDDEN)
     @ExceptionHandler(CustomAccessDeniedHandler.class)
     public BaseResponse<List<String>> forbiddenException(CustomAccessDeniedHandler ex) {
-
+        log.error("An exception occurred:", ex);
         return new BaseResponse<>(Collections.singletonList(ex.getMessage()), HttpStatus.FORBIDDEN.name(), Boolean.FALSE, HttpStatus.FORBIDDEN.value());
     }
 
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler(CustomExpiredJwtException.class)
     public BaseResponse<List<String>> jwtExpiredException(CustomExpiredJwtException ex) {
-
+        log.error("An exception occurred:", ex);
         return new BaseResponse<>(Collections.singletonList(ex.getMessage()), HttpStatus.FORBIDDEN.name(), Boolean.FALSE, HttpStatus.FORBIDDEN.value());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public BaseResponse<List<String>> handleInvalidArgument(MethodArgumentNotValidException ex) {
-
+        log.error("An exception occurred:", ex);
         List<String> errorMap = new ArrayList<>();
         ex.getBindingResult().getFieldErrors().forEach(error -> {
             errorMap.add(error.getField() + ": " + error.getDefaultMessage());
@@ -56,13 +58,14 @@ public class ApplicationExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(RuntimeException.class)
     public BaseResponse<List<String>> handleRuntimeException(RuntimeException ex) {
-
+        log.error("An exception occurred:", ex);
         return new BaseResponse<>(Collections.singletonList(ex.getMessage()), HttpStatus.BAD_REQUEST.name(), Boolean.FALSE, HttpStatus.BAD_REQUEST.value());
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(HttpServerErrorException.InternalServerError.class)
     public BaseResponse<List<String>> handleInternalServerErrorException(HttpServerErrorException.InternalServerError ex) {
+        log.error("An exception occurred:", ex);
         return new BaseResponse<>(Collections.singletonList(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR.name(), Boolean.FALSE, HttpStatus.INTERNAL_SERVER_ERROR.value());
     }
 
@@ -70,28 +73,28 @@ public class ApplicationExceptionHandler {
     @ResponseStatus(HttpStatus.CONFLICT)
     @ExceptionHandler(DuplicateRecordException.class)
     public BaseResponse<List<String>> handlerDuplicateRecordException(DuplicateRecordException ex) {
-
+        log.error("An exception occurred:", ex);
         return new BaseResponse<>(Collections.singletonList(ex.getMessage()), HttpStatus.CONFLICT.name(), Boolean.FALSE, HttpStatus.CONFLICT.value());
     }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(RecordNotFoundException.class)
     public BaseResponse<List<String>> handlerRecordNotFound(RecordNotFoundException ex) {
-
+        log.error("An exception occurred:", ex);
         return new BaseResponse<>(Collections.singletonList(ex.getMessage()), HttpStatus.NOT_FOUND.name(), Boolean.FALSE, HttpStatus.NOT_FOUND.value());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(InvalidDataEntryException.class)
     public BaseResponse<List<String>> handlerInvalidDataEntry(InvalidDataEntryException ex) {
-
+        log.error("An exception occurred:", ex);
         return new BaseResponse<>(Collections.singletonList(ex.getMessage()), HttpStatus.BAD_REQUEST.name(), Boolean.FALSE, HttpStatus.BAD_REQUEST.value());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(UsernameNotFoundException.class)
     public BaseResponse<List<String>> usernameNotFoundException(UsernameNotFoundException ex) {
-
+        log.error("An exception occurred:", ex);
         return new BaseResponse<>(Collections.singletonList(ex.getMessage()), HttpStatus.BAD_REQUEST.name(), Boolean.FALSE, HttpStatus.BAD_REQUEST.value());
     }
 

@@ -40,7 +40,6 @@ CREATE TABLE token (
     expired number(1,0) DEFAULT 0,
     revoked number(1,0) DEFAULT 0,
     user_id INTEGER NOT NULL,
-    
     CONSTRAINT FK_TOKEN_USER_ID FOREIGN KEY (user_id) REFERENCES users(id)
 );
 CREATE SEQUENCE token_sequence;
@@ -77,7 +76,6 @@ CREATE TABLE book (
   category_id integer NOT NULL,
   title varchar(30) NOT NULL,
   description varchar(500) NOT NULL,
-  price decimal(12, 2) NOT NULL,
   is_borrowed NUMBER(1,0) DEFAULT 0,
   is_removed NUMBER(1,0) DEFAULT 0,
   created_at timestamp,

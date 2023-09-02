@@ -3,8 +3,11 @@ package com.example.project.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.time.OffsetDateTime;
 
 
@@ -23,20 +26,19 @@ public class Book {
     @Column(nullable = false, length = 500)
     private String description;
 
-    @Column(nullable = false, precision = 14, scale = 2)
-    private BigDecimal price;
-
-    @Column
+    @Column()
     private Boolean isBorrowed;
 
     @Column
     private Boolean isRemoved;
 
     @Column
-    private OffsetDateTime createdAt;
+    @CreationTimestamp
+    private Instant createdAt;
 
     @Column
-    private OffsetDateTime updatedAt;
+    @UpdateTimestamp
+    private Instant updatedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)

@@ -24,7 +24,6 @@ public class UserController {
     private final UserService service;
 
     @PostMapping("/auth/register")
-
     public ResponseEntity<BaseResponse<String>> register(@RequestBody  @Valid RegisterDto request){
 
         return  ResponseEntity.status(HttpStatus.CREATED).body(service.register(request));

@@ -6,7 +6,9 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class CategoryDto {
+public class CategoryResponseDto implements Serializable {
+    @NotNull
+    private final Integer id;
     @NotNull
     private final String category;
 }
