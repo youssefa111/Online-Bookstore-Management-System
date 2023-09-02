@@ -2,10 +2,7 @@ package com.example.auth.user.dto;
 
 import com.example.auth.role.dto.RoleDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,6 +31,10 @@ public class RegisterDto {
     @NotBlank
     @Size(min = 3 , max = 30)
     private String username;
+    @NotBlank
+    @Size(min = 12 , max = 12)
+    @Pattern(regexp = "^[0-9]+$", message = "civil id must contain only digits")
+    private String civilId;
     @Email
     @NotBlank
     private String email;

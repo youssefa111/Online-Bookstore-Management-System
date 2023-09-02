@@ -51,7 +51,7 @@ public class BookController {
 
     @GetMapping("/allAvailable")
     @ResponseStatus(HttpStatus.OK)
-    @Secured(AppConstants.USER)
+    @Secured({AppConstants.USER,AppConstants.ADMIN})
     public BaseResponse<List<BookResponseDto>> findAllAvailableBooks(){
         return bookService.findAllAvailableBooks();
     }

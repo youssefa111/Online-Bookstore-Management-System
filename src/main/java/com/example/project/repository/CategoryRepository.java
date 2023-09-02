@@ -8,4 +8,6 @@ import java.util.Optional;
 
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
+    boolean existsByCategory(String category);
+
 }

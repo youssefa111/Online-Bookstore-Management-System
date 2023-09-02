@@ -1,16 +1,19 @@
 package com.example.project.dto.borrowedBook;
 
 import com.example.project.dto.book.BookResponseDto;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Data
-public class BorrowedBookResponseDto implements Serializable {
-    private final Integer borrowId;
-    private final LocalDate borrowDate;
-    private final LocalDate returnDate;
-    private final Long userId;
-    private final BookResponseDto book;
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class BorrowedBookResponseDto {
+    private  Integer borrowId;
+    private  LocalDate borrowDate;
+    private  LocalDate returnDate;
+    private  Long userId;
+    private  BookResponseDto book;
 }

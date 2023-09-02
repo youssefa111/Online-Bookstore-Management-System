@@ -1,9 +1,17 @@
 package com.example.project.dto.category;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 
-public record CategoryUpdateDto(@NotNull Integer id, @NotNull String category) {
-
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class CategoryUpdateDto {
+    @NotNull
+    private Integer id;
+    @NotBlank
+    private String category;
 }

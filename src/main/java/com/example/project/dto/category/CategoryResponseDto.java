@@ -1,14 +1,15 @@
 package com.example.project.dto.category;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 
-@Data
-public class CategoryResponseDto implements Serializable {
-    @NotNull
-    private final Integer id;
-    @NotNull
-    private final String category;
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class CategoryResponseDto  {
+    private  Integer id;
+    private  String category;
 }

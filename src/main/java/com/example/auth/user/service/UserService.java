@@ -12,6 +12,7 @@ import com.example.core.base.BaseResponse;
 import com.example.core.exception_handling.exception.DuplicateRecordException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -37,12 +38,12 @@ public class UserService  {
     @Transactional
     public BaseResponse<String> register(RegisterDto request) {
         User user = userMapper.toEntity(request);
+        isCivilIdExist(request.getCivilId());
         isUsernameExist(user);
         isEmailExist(user);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setIsVerified((short) 0);
         userRepository.save(user);
-        return  new BaseResponse<>(null,"User Account Created Successfully!");
+        return  new BaseResponse<>(null,"User Account Created Successfully!", HttpStatus.CREATED.value());
     }
 
     private void isUsernameExist(User user) {
@@ -51,11 +52,22 @@ public class UserService  {
             throw new DuplicateRecordException("This username already exists, try another one");
         }
     }
+
+    private void isCivilIdExist(String civilId) {
+        var result = userRepository.existsByCivilId(civilId);
+        if(result){
+            throw new DuplicateRecordException("This Civil id already exists, try another one");
+        }
+    }
     private void isEmailExist(User user) {
         var result = userRepository.findByEmail(user.getEmail());
         if(result.isPresent()){
             throw new DuplicateRecordException("This email already exists, try another one");
         }
+    }
+
+    public boolean isUserExist(Long id){
+        return userRepository.existsById(id);
     }
 
     @Transactional

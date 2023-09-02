@@ -1,5 +1,6 @@
 package com.example.project.entity;
 
+import com.example.core.listeners.LowercaseEntityListener;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@EntityListeners(LowercaseEntityListener.class)
 public class Category {
 
     @Id

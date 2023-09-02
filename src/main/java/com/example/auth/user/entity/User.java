@@ -1,7 +1,6 @@
 package com.example.auth.user.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.example.auth.role.entity.Role;
 import com.example.auth.token.entity.Token;
 import jakarta.persistence.*;
@@ -15,7 +14,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -44,13 +42,13 @@ public class User implements UserDetails {
     private String phone;
     @Column(length = 30, nullable = false)
     private String username;
+    @Column(name = "civil_id",length = 12, nullable = false)
+    private String civilId;
     @Email
     @Column(length = 50, nullable = false)
     private String email;
     @Column( nullable = false)
     private String password;
-    @Column(name = "is_verified")
-    private short isVerified ;
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;

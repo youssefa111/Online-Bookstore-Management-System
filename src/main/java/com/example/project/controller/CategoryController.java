@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("{baseUrl}/categories")
+@RequestMapping("${baseUrl}/categories")
 @RequiredArgsConstructor
 @Validated
 @Secured(AppConstants.ADMIN)

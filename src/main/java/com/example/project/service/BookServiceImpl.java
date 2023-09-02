@@ -37,6 +37,8 @@ public class BookServiceImpl implements BookService {
     public BaseResponse<BookResponseDto> save(BookRequestDto bookDto) {
         if(!categoryService.existsById(bookDto.getCategoryId())) throw new RecordNotFoundException("this Category with id:-{" + bookDto.getCategoryId() + "} not found");
         Book book = bookMapper.bookRequestDtoToBook(bookDto);
+        book.setIsBorrowed(Boolean.FALSE);
+        book.setIsRemoved(Boolean.FALSE);
         var result = bookMapper.bookToBookResponseDto(bookRepository.save(book));
         return new BaseResponse<>(result, StringUtils.createdMsg("Book"), HttpStatus.CREATED.value());
     }
@@ -63,6 +65,10 @@ public class BookServiceImpl implements BookService {
     @Transactional
     @Override
     public BaseResponse<String> delete(Integer id) {
+        if (!bookRepository.existsById(id)) {
+            throw new RecordNotFoundException("Book with ID " + id + " not found");
+        }
+
         bookRepository.deleteById(id);
         return new BaseResponse<>(null, StringUtils.deleteMsg("Book")) ;
     }

@@ -1,12 +1,18 @@
 package com.example.project.dto.category;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
 
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CategoryDto {
-    @NotNull
-    private final String category;
+    @NotBlank
+    @Length(max = 30)
+    private  String category;
 }

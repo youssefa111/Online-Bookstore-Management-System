@@ -14,7 +14,8 @@ public interface CategoryService {
 
     BaseResponse<CategoryResponseDto> update(CategoryUpdateDto categoryDto);
 
-     Boolean existsById(int id);
+     Boolean existsById(Integer id);
+    Boolean existsByCategory(String category);
 
     BaseResponse<Set<CategoryResponseDto>> findAll();
 

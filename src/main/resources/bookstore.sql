@@ -15,7 +15,6 @@ CREATE TABLE users (
   address varchar(100) NOT NULL,
   phone varchar(11) NOT NULL,
   civil_id varchar(12) NOT NULL,
-  is_verified NUMBER(1,0) DEFAULT 0,
   created_at timestamp,
   updated_at timestamp,
   CONSTRAINT fk_user_role FOREIGN KEY (role_id) REFERENCES role(role_id)
@@ -74,7 +73,7 @@ END;
 CREATE TABLE book (
   id integer PRIMARY KEY,
   category_id integer NOT NULL,
-  title varchar(30) NOT NULL,
+  title varchar(100) NOT NULL,
   description varchar(500) NOT NULL,
   is_borrowed NUMBER(1,0) DEFAULT 0,
   is_removed NUMBER(1,0) DEFAULT 0,

@@ -1,17 +1,24 @@
 package com.example.project.dto.book;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
 
-@Data
-public class BookUpdateDto implements Serializable {
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class BookUpdateDto  {
     @NotNull
-    private final Integer id;
-    private final String title;
-    private final String description;
-    private final Boolean isBorrowed;
-    private final Boolean isRemoved;
-    private final Integer categoryId;
+    private  Integer id;
+    @Length(max = 100)
+    private  String title;
+    @Length(max = 500)
+    private  String description;
+    private  Boolean isBorrowed;
+    private  Boolean isRemoved;
+    private  Integer categoryId;
 }

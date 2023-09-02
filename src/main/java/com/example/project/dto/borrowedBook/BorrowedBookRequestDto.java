@@ -1,20 +1,26 @@
 package com.example.project.dto.borrowedBook;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
-@Data
-public class BorrowedBookRequestDto implements Serializable {
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class BorrowedBookRequestDto {
     @NotNull
-    private final LocalDate borrowDate;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private  LocalDate borrowDate;
     @NotNull
-    private final LocalDate returnDate;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private  LocalDate returnDate;
     @NotNull
-    private final Long userId;
+    private  Long userId;
     @NotNull
-    private final Integer bookId;
+    private  Integer bookId;
 }
