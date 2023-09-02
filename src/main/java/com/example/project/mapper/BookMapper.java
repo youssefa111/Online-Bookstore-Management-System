@@ -6,7 +6,10 @@ import com.example.project.dto.book.BookUpdateDto;
 import com.example.project.entity.Book;
 import org.mapstruct.*;
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING,
+uses = {
+        CategoryMapper.class
+})
 public interface BookMapper {
     @Mapping(source = "categoryId", target = "category.id")
     Book bookRequestDtoToBook(BookRequestDto bookRequestDto);

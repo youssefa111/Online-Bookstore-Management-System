@@ -2,7 +2,6 @@ package com.example.project.service;
 
 import com.example.auth.user.service.UserService;
 import com.example.core.base.BaseResponse;
-import com.example.core.exception_handling.exception.DuplicateRecordException;
 import com.example.core.exception_handling.exception.InvalidDataEntryException;
 import com.example.core.exception_handling.exception.RecordNotFoundException;
 import com.example.core.utils.StringUtils;
@@ -15,8 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
+import static java.time.temporal.ChronoUnit.DAYS;
 
 @Service
 @RequiredArgsConstructor
@@ -36,12 +34,12 @@ public class BorrowedBookServiceImpl  implements BorrowedBookService{
             throw new RecordNotFoundException("There is no id for that User,Please re-check it and try again later.");
         else if(borrowedBookRequestDto.getReturnDate().isBefore(borrowedBookRequestDto.getBorrowDate()))
             throw new InvalidDataEntryException("Invalid dates entry, the Return Date should be after borrow Date");
-        else if(ChronoUnit.DAYS.between(borrowedBookRequestDto.getBorrowDate(), borrowedBookRequestDto.getReturnDate()) > 30)
+        else if(DAYS.between(borrowedBookRequestDto.getBorrowDate(), borrowedBookRequestDto.getReturnDate()) > 30)
             throw new InvalidDataEntryException("Sorry,You cant Borrow a book more than 30 days");
         else {
             var entity = borrowedBookMapper.borrowedBookDtoToBorrowedBook(borrowedBookRequestDto);
-            entity.getBook().setIsBorrowed(Boolean.TRUE);
             var result = borrowedBookMapper.borrowedBookToBorrowedBookResponseDto(borrowedBookRepository.save(entity));
+            bookService.updateIsBorrowedTrueById(result.getBook().getId());
             return new BaseResponse<>(result, StringUtils.createdMsg("Borrow Book Operation"), HttpStatus.CREATED.value());
         }
 
