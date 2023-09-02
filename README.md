@@ -22,6 +22,8 @@ System that have two roles (admin,user) the user can browse for available books 
 - can browse books by category
 - can borrow books
 
+# Postman Collection path: src/main/resources/bookstore.postman_collection.json
+
 
 # DATABASE DIAGRAM
 (note: you can check oracle sql code for the database from this path: /src/main/resources/bookstore.sql)
