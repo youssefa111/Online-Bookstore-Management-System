@@ -17,10 +17,10 @@ Oracle SQL for Database.
 - remove book (Remove is just not show in available books)
 
 # User
-1- can browse all avaiable books
-2- can see the categories of books in the store
-3- can browse books by category
-5- can borrow books
+- can browse all avaiable books
+- can see the categories of books in the store
+- can browse books by category
+- can borrow books
 
 
 # DATABASE DIAGRAM
